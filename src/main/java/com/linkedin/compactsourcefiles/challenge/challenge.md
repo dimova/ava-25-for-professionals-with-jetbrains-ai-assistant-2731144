@@ -5,7 +5,6 @@
 2. Give it the following main method:
 ```java
 void main() {
-   IO.println("Hello world");
 }
 ```
 
