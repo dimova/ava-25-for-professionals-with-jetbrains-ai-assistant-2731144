@@ -25,7 +25,7 @@ public class SavingsAccount extends BankAccount {
         // Now call superclass constructor
         super(accountNumber, initialBalance);
 
-        // EPILOGUE: Additional setup after super()
+        // Additional setup after super()
         System.out.println("Account type: " + accountType +
                 " with interest rate: " + (interestRate * 100) + "%");
     }
