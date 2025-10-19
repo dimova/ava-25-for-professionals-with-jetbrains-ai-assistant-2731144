@@ -1,4 +1,7 @@
-package com.linkedin.compactsourcefiles.challenge;
+void main() {
+    sayHi();
+}
 
-public class Solution {
+public void sayHi() {
+    IO.println("Hi!");
 }
