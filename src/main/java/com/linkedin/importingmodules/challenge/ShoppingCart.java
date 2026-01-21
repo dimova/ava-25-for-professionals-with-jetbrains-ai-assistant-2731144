@@ -1,24 +1,11 @@
 package com.linkedin.importingmodules.challenge;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Optional;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.stream.Collectors;
-import java.text.NumberFormat;
-import java.util.Locale;
+import module java.base;
 
 public class ShoppingCart {
 
-    private List<Item> items;
-    private LocalDateTime createdAt;
+    private final List<Item> items;
+    private final LocalDateTime createdAt;
 
     public ShoppingCart() {
         this.items = new ArrayList<>();
@@ -38,7 +25,7 @@ public class ShoppingCart {
 
     public Optional<Item> findMostExpensive() {
         return items.stream()
-                .max((a, b) -> a.price().compareTo(b.price()));
+                .max(Comparator.comparing(Item::price));
     }
 
     public Map<String, Integer> getItemCounts() {
@@ -73,7 +60,7 @@ public class ShoppingCart {
         Files.writeString(Path.of(filename), receipt.toString());
     }
 
-    void main(String[] args) throws IOException {
+    void main() throws IOException {
         ShoppingCart cart = new ShoppingCart();
 
         cart.addItem("Laptop", new BigDecimal("999.99"), 1);
@@ -93,4 +80,4 @@ public class ShoppingCart {
     }
 }
 
-record Item(String name, BigDecimal price, int quantity) {}
+
